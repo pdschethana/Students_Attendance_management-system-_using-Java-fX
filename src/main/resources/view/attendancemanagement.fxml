@@ -51,12 +51,12 @@
             </children>
         </AnchorPane>
 
-        <!-- Action Buttons -->
-        <Button fx:id="btnAdd" layoutX="193.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5;" text="Add" />
-        <Button fx:id="btnUpdate" layoutX="300.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
-        <Button fx:id="btnDelete" layoutX="400.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
-        <Button fx:id="btnClear" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5;" text="Clear" />
-        <Button fx:id="btnSearch" layoutX="600.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-background-radius: 5;" text="Search" />
+        <!-- Action Buttons with controller actions -->
+        <Button fx:id="btnAdd" layoutX="193.0" layoutY="270.0" mnemonicParsing="false" onAction="#onAdd" prefWidth="80.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5;" text="Add" />
+        <Button fx:id="btnUpdate" layoutX="300.0" layoutY="270.0" mnemonicParsing="false" onAction="#onUpdate" prefWidth="80.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
+        <Button fx:id="btnDelete" layoutX="400.0" layoutY="270.0" mnemonicParsing="false" onAction="#onDelete" prefWidth="80.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
+        <Button fx:id="btnClear" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" onAction="#onClear" prefWidth="80.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5;" text="Clear" />
+        <Button fx:id="btnSearch" layoutX="600.0" layoutY="270.0" mnemonicParsing="false" onAction="#onSearch" prefWidth="80.0" style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-background-radius: 5;" text="Search" />
 
         <!-- Table Title -->
         <Label layoutX="50.0" layoutY="320.0" text="Attendance Records">
@@ -75,5 +75,6 @@
                 <TableColumn fx:id="colattstatus" prefWidth="140.0" text="Status" />
             </columns>
         </TableView>
+      <Button layoutX="63.0" layoutY="25.0" mnemonicParsing="false" onAction="#backattendancemanagementtoadmindshbrd" prefHeight="26.0" prefWidth="48.0" text="Back" />
     </children>
 </AnchorPane>

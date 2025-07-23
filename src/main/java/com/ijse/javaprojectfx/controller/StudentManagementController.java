@@ -6,8 +6,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 public class StudentManagementController {
@@ -71,5 +77,19 @@ public class StudentManagementController {
     }
 
     public void backstudentfromdashboard(ActionEvent actionEvent) {
+
+    }
+
+    public void backstumanagementtoadmindashboard(ActionEvent actionEvent) {
+        try {
+            // Fixed: Corrected the resource path to match the pattern used in other methods
+            Parent loginView = FXMLLoader.load(getClass().getResource("/view/admindashboard.fxml"));
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(loginView));
+            stage.setTitle("admindashboard");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

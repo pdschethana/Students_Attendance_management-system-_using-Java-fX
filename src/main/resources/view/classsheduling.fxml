@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.ClassshedulingController">
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.ClassshedulingController">
     <children>
-        <VBox layoutX="20.0" layoutY="20.0" prefHeight="600.0" prefWidth="760.0" spacing="20.0">
+        <VBox layoutX="-6.0" layoutY="20.0" prefHeight="600.0" prefWidth="786.0" spacing="20.0">
             <children>
                 <!-- Title -->
                 <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Class Scheduling Management">
@@ -103,7 +103,7 @@
                                 <Font name="System Bold" size="16.0" />
                             </font>
                         </Label>
-                        <TableView fx:id="tblSchedule" prefHeight="300.0" style="-fx-background-color: white;">
+                        <TableView fx:id="tblSchedule" prefHeight="216.0" prefWidth="745.0" style="-fx-background-color: white;">
                             <columns>
                                 <TableColumn fx:id="colscheduleid" prefWidth="100.0" text="Schedule ID" />
                                 <TableColumn fx:id="colschedulecourse" prefWidth="120.0" text="Course ID" />
@@ -119,5 +119,6 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
         </VBox>
+      <Button layoutX="715.0" layoutY="1.0" mnemonicParsing="false" onAction="#Backclasssheduletoadmindashbrd" prefHeight="26.0" prefWidth="54.0" text="Back" />
     </children>
 </AnchorPane>

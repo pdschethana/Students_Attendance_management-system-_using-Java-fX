@@ -6,42 +6,37 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
+<AnchorPane prefHeight="540" prefWidth="750" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.StudentManagementController">
 
-<AnchorPane fx:controller="com.ijse.javaprojectfx.controller.StudentManagementController"
-            xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-            prefWidth="750" prefHeight="540">
+    <Label alignment="CENTER" layoutX="0" layoutY="0" prefHeight="50" prefWidth="750" style="-fx-background-color:#2c3e50; -fx-text-fill:white; -fx-font-size:24;" text="Student Management" />
 
-    <Label layoutX="0" layoutY="0" prefWidth="750" prefHeight="50"
-           style="-fx-background-color:#2c3e50; -fx-text-fill:white; -fx-font-size:24;"
-           text="Student Management" alignment="CENTER"/>
+    <Label layoutX="50" layoutY="80" text="Student ID:" />
+    <TextField fx:id="stuid" layoutX="140" layoutY="80" prefWidth="200" />
 
-    <Label layoutX="50" layoutY="80" text="Student ID:"/>
-    <TextField fx:id="stuid" layoutX="140" layoutY="80" prefWidth="200"/>
+    <Label layoutX="50" layoutY="120" text="Name:" />
+    <TextField fx:id="stuname" layoutX="140" layoutY="120" prefWidth="200" />
 
-    <Label layoutX="50" layoutY="120" text="Name:"/>
-    <TextField fx:id="stuname" layoutX="140" layoutY="120" prefWidth="200"/>
+    <Label layoutX="50" layoutY="160" text="Contact:" />
+    <TextField fx:id="studetails" layoutX="140" layoutY="160" prefWidth="200" />
 
-    <Label layoutX="50" layoutY="160" text="Contact:"/>
-    <TextField fx:id="studetails" layoutX="140" layoutY="160" prefWidth="200"/>
+    <Label layoutX="50" layoutY="200" text="Course ID:" />
+    <TextField fx:id="stucrsid" layoutX="140" layoutY="200" prefWidth="200" />
 
-    <Label layoutX="50" layoutY="200" text="Course ID:"/>
-    <TextField fx:id="stucrsid" layoutX="140" layoutY="200" prefWidth="200"/>
+    <Button layoutX="400" layoutY="80" onAction="#stuaddOnAction" text="Add" />
+    <Button layoutX="400" layoutY="120" onAction="#stuUpdateOnAction" text="Update" />
+    <Button layoutX="400" layoutY="160" onAction="#stuDeleteOnAction" text="Delete" />
 
-    <Button text="Add" layoutX="400" layoutY="80" onAction="#stuaddOnAction"/>
-    <Button text="Update" layoutX="400" layoutY="120" onAction="#stuUpdateOnAction"/>
-    <Button text="Delete" layoutX="400" layoutY="160" onAction="#stuDeleteOnAction"/>
+    <TextField fx:id="stusearchbar" layoutX="400" layoutY="220" prefWidth="200" promptText="Search by ID" />
+    <Button layoutX="610" layoutY="220" onAction="#stuSearchOnAction" text="Search" />
 
-    <TextField fx:id="stusearchbar" layoutX="400" layoutY="220" prefWidth="200" promptText="Search by ID"/>
-    <Button text="Search" layoutX="610" layoutY="220" onAction="#stuSearchOnAction"/>
-
-    <TableView fx:id="studenttable" layoutX="50" layoutY="270" prefWidth="650" prefHeight="250">
+    <TableView fx:id="studenttable" layoutX="50" layoutY="270" prefHeight="250" prefWidth="650">
         <columns>
-            <TableColumn fx:id="stucolid" text="ID" prefWidth="150"/>
-            <TableColumn fx:id="stucolname" text="Name" prefWidth="200"/>
-            <TableColumn fx:id="stucoldetails" text="Contact" prefWidth="200"/>
-            <TableColumn fx:id="stucolcrsid" text="Course ID" prefWidth="100"/>
+            <TableColumn fx:id="stucolid" prefWidth="150" text="ID" />
+            <TableColumn fx:id="stucolname" prefWidth="200" text="Name" />
+            <TableColumn fx:id="stucoldetails" prefWidth="200" text="Contact" />
+            <TableColumn fx:id="stucolcrsid" prefWidth="100" text="Course ID" />
         </columns>
     </TableView>
+   <Button layoutX="59.0" layoutY="13.0" mnemonicParsing="false" onAction="#backstumanagementtoadmindashboard" prefHeight="26.0" prefWidth="50.0" text="Back" />
 </AnchorPane>

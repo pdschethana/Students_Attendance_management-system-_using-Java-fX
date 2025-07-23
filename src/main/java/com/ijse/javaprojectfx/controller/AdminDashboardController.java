@@ -65,6 +65,16 @@ public class AdminDashboardController {
     }
 
     public void attendancemanagementOnAction(ActionEvent actionEvent) {
+        try {
+            // Fixed: Corrected the resource path to match the pattern used in other methods
+            Parent loginView = FXMLLoader.load(getClass().getResource("/view/attendancemanagement.fxml"));
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(loginView));
+            stage.setTitle("shedule classes");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // Implementation needed
     }
 
