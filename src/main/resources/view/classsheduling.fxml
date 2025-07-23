@@ -1,124 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.ClassshedulingController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ijse.javaprojectfx.controller.ClassScheduleController"
+            prefWidth="800" prefHeight="600">
     <children>
-        <VBox layoutX="-6.0" layoutY="20.0" prefHeight="600.0" prefWidth="786.0" spacing="20.0">
-            <children>
-                <!-- Title -->
-                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Class Scheduling Management">
-                    <font>
-                        <Font name="System Bold" size="24.0" />
-                    </font>
-                </Label>
+        <Label layoutX="20" layoutY="20" text="Schedule ID:" />
+        <TextField fx:id="txtScheduleId" layoutX="150" layoutY="20" />
 
-                <!-- Form Section -->
-                <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-padding: 20;">
-                    <children>
-                        <Label text="Schedule Information">
-                            <font>
-                                <Font name="System Bold" size="16.0" />
-                            </font>
-                        </Label>
+        <Label layoutX="20" layoutY="60" text="Course ID:" />
+        <TextField fx:id="txtCourseId" layoutX="150" layoutY="60" />
 
-                        <!-- First Row -->
-                        <HBox spacing="20.0">
-                            <children>
-                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Schedule ID:" />
-                                        <TextField fx:id="scheduleid" prefWidth="150.0" promptText="Enter Schedule ID" />
-                                    </children>
-                                </VBox>
-                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Course ID:" />
-                                        <ComboBox fx:id="schedulecourseid" prefWidth="150.0" promptText="Select Course" />
-                                    </children>
-                                </VBox>
-                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Subject:" />
-                                        <TextField fx:id="schedulesubject" prefWidth="150.0" promptText="Enter Subject" />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </HBox>
+        <Label layoutX="20" layoutY="100" text="Subject:" />
+        <TextField fx:id="txtSubject" layoutX="150" layoutY="100" />
 
-                        <!-- Second Row -->
-                        <HBox spacing="20.0">
-                            <children>
-                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Date:" />
-                                        <DatePicker fx:id="scheduledate" prefWidth="150.0" promptText="Select Date" />
-                                    </children>
-                                </VBox>
-                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Lecturer ID:" />
-                                        <ComboBox fx:id="schedulelecid" prefWidth="150.0" promptText="Select Lecturer" />
-                                    </children>
-                                </VBox>
-                                <!-- Empty space for alignment -->
-                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Label text=" " />
-                                        <Label text=" " />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </HBox>
+        <Label layoutX="20" layoutY="140" text="Date:" />
+        <DatePicker fx:id="datePicker" layoutX="150" layoutY="140" />
 
-                        <!-- Action Buttons -->
-                        <HBox alignment="CENTER" spacing="15.0">
-                            <children>
-                                <Button fx:id="btnAdd" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5;" text="Add" />
-                                <Button fx:id="btnUpdate" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
-                                <Button fx:id="btnDelete" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
-                                <Button fx:id="btnClear" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5;" text="Clear" />
-                                <Button fx:id="btnSearch" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-background-radius: 5;" text="Search" />
-                            </children>
-                        </HBox>
-                    </children>
-                </VBox>
+        <Label layoutX="20" layoutY="180" text="Lecturer ID:" />
+        <TextField fx:id="txtLecturerId" layoutX="150" layoutY="180" />
 
-                <!-- Table Section -->
-                <VBox spacing="10.0" VBox.vgrow="ALWAYS">
-                    <children>
-                        <Label text="Schedule Records">
-                            <font>
-                                <Font name="System Bold" size="16.0" />
-                            </font>
-                        </Label>
-                        <TableView fx:id="tblSchedule" prefHeight="216.0" prefWidth="745.0" style="-fx-background-color: white;">
-                            <columns>
-                                <TableColumn fx:id="colscheduleid" prefWidth="100.0" text="Schedule ID" />
-                                <TableColumn fx:id="colschedulecourse" prefWidth="120.0" text="Course ID" />
-                                <TableColumn fx:id="colschedulesubject" prefWidth="150.0" text="Subject" />
-                                <TableColumn fx:id="colscheduledate" prefWidth="120.0" text="Date" />
-                                <TableColumn fx:id="colschedulelec" prefWidth="120.0" text="Lecturer ID" />
-                            </columns>
-                        </TableView>
-                    </children>
-                </VBox>
-            </children>
-            <padding>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-        </VBox>
-      <Button layoutX="715.0" layoutY="1.0" mnemonicParsing="false" onAction="#Backclasssheduletoadmindashbrd" prefHeight="26.0" prefWidth="54.0" text="Back" />
+        <Label layoutX="20" layoutY="220" text="Start Time:" />
+        <TextField fx:id="txtStartTime" layoutX="150" layoutY="220" />
+
+        <Label layoutX="20" layoutY="260" text="End Time:" />
+        <TextField fx:id="txtEndTime" layoutX="150" layoutY="260" />
+
+        <HBox spacing="10" layoutX="150" layoutY="300">
+            <Button text="Add" onAction="#btnAddOnAction" />
+            <Button text="Update" onAction="#btnUpdateOnAction" />
+            <Button text="Delete" onAction="#btnDeleteOnAction" />
+        </HBox>
+
+        <TableView fx:id="tblSchedule" layoutX="20" layoutY="350" prefWidth="760" prefHeight="220">
+            <columns>
+                <TableColumn fx:id="colId" text="Schedule ID" prefWidth="100"/>
+                <TableColumn fx:id="colCourse" text="Course ID" prefWidth="100"/>
+                <TableColumn fx:id="colSubject" text="Subject" prefWidth="120"/>
+                <TableColumn fx:id="colDate" text="Date" prefWidth="100"/>
+                <TableColumn fx:id="colLecturer" text="Lecturer ID" prefWidth="100"/>
+                <TableColumn fx:id="colStartTime" text="Start Time" prefWidth="100"/>
+                <TableColumn fx:id="colEndTime" text="End Time" prefWidth="100"/>
+            </columns>
+        </TableView>
     </children>
 </AnchorPane>

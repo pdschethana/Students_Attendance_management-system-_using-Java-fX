@@ -1,41 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.ijse.javaprojectfx.controller.LecturerDashboardController"
-            prefHeight="600.0" prefWidth="800.0"
-            style="-fx-background-color: #F4F6F7;">
+<AnchorPane onDragDetected="#gotologinpage" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F4F6F7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.LecturerDashboardController">
 
     <!-- Header -->
-    <Label layoutX="20.0" layoutY="20.0" text="📚 EduTrack - Lecturer Dashboard"
-           style="-fx-font-size: 22px; -fx-text-fill: #2C3E50;" />
+    <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 22px; -fx-text-fill: #2C3E50;" text="📚 EduTrack - Lecturer Dashboard" />
 
     <!-- Welcome Label -->
-    <Label fx:id="lblWelcome"
-           layoutX="20.0" layoutY="60.0"
-           text="Welcome, Dr. [Lecturer Name]"
-           style="-fx-font-size: 16px;" />
+    <Label fx:id="lblWelcome" layoutX="20.0" layoutY="60.0" style="-fx-font-size: 16px;" text="Welcome, Dr. [Lecturer Name]" />
 
     <!-- Buttons -->
-    <Button fx:id="btnViewSchedule" text="📅 View My Class Schedule"
-            layoutX="300.0" layoutY="130.0" prefWidth="250.0" />
+    <Button fx:id="btnViewSchedule" layoutX="300.0" layoutY="130.0" prefWidth="250.0" text="📅 View My Class Schedule" />
 
-    <Button fx:id="btnMarkAttendance" text="📝 Mark Attendance"
-            layoutX="300.0" layoutY="190.0" prefWidth="250.0" />
+    <Button fx:id="btnMarkAttendance" layoutX="300.0" layoutY="190.0" onAction="#Gotoattendancemanagementpage" prefWidth="250.0" text="📝 Mark Attendance" />
 
-    <Button fx:id="btnViewReports" text="📊 View Attendance Reports"
-            layoutX="300.0" layoutY="250.0" prefWidth="250.0" />
+    <Button fx:id="btnViewReports" layoutX="300.0" layoutY="250.0" prefWidth="250.0" text="📊 View Attendance Reports" />
 
-    <Button fx:id="btnManageProfile" text="👤 Manage My Profile"
-            layoutX="300.0" layoutY="310.0" prefWidth="250.0" />
+    <Button fx:id="btnManageProfile" layoutX="300.0" layoutY="311.0" prefWidth="250.0" text="👤 Manage My Profile" />
 
     <!-- Logout Button -->
-    <Button fx:id="btnLogout" text="🚪 Logout"
-            layoutX="650.0" layoutY="550.0"
-            style="-fx-background-color: #E74C3C; -fx-text-fill: white;"
-            prefWidth="100.0" />
+    <Button fx:id="btnLogout" layoutX="650.0" layoutY="550.0" onAction="#gotologin" prefWidth="100.0" style="-fx-background-color: #E74C3C; -fx-text-fill: white;" text="🚪 Logout" />
 </AnchorPane>

@@ -16,18 +16,18 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.ReportsController">
     <children>
-        <!-- Back Button in Upper Left Corner -->
-        <Button fx:id="btnBack" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#reportbackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="← Back">
-            <graphic>
-                <ImageView fx:id="backIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-            </graphic>
-        </Button>
 
-        <VBox layoutX="20.0" layoutY="80.0" prefHeight="600.0" prefWidth="760.0" spacing="20.0">
+        <VBox layoutX="-3.0" layoutY="-9.0" prefHeight="823.0" prefWidth="806.0" spacing="20.0">
             <children>
                 <!-- Title Section -->
                 <HBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
                     <children>
+                        <!-- Back Button in Upper Left Corner -->
+                        <Button fx:id="btnBack" mnemonicParsing="false" onAction="#reportbackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="← Back">
+                            <graphic>
+                                <ImageView fx:id="backIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
                         <ImageView fx:id="titleIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                         <Label alignment="CENTER" text="Reports Dashboard" textFill="#2c3e50">
                             <font>
@@ -110,31 +110,31 @@
                         <!-- Action Buttons -->
                         <HBox alignment="CENTER" spacing="20.0">
                             <children>
-                                <Button fx:id="btnGenerate" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#onGenerate" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
                                     <graphic>
                                         <ImageView fx:id="generateIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                                     </graphic>
                                     <text>Generate</text>
                                 </Button>
-                                <Button fx:id="btnExportPDF" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                <Button fx:id="btnExportPDF" mnemonicParsing="false" onAction="#onExportPDF" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
                                     <graphic>
                                         <ImageView fx:id="pdfIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                                     </graphic>
                                     <text>Export PDF</text>
                                 </Button>
-                                <Button fx:id="btnExportExcel" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                <Button fx:id="btnExportExcel" mnemonicParsing="false" onAction="#onExportExcel" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
                                     <graphic>
                                         <ImageView fx:id="excelIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                                     </graphic>
                                     <text>Export Excel</text>
                                 </Button>
-                                <Button fx:id="btnClear" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                <Button fx:id="btnClear" mnemonicParsing="false" onAction="#onClear" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
                                     <graphic>
                                         <ImageView fx:id="clearIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                                     </graphic>
                                     <text>Clear</text>
                                 </Button>
-                                <Button fx:id="btnPrint" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                <Button fx:id="btnPrint" mnemonicParsing="false" onAction="#onPrint" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
                                     <graphic>
                                         <ImageView fx:id="printIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                                     </graphic>
@@ -187,6 +187,21 @@
                                     </font>
                                 </Label>
                                 <Label text="Absent" textFill="#495057">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: #fff3cd; -fx-background-radius: 10; -fx-padding: 15;">
+                            <children>
+                                <ImageView fx:id="lateIcon" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label fx:id="lblLateCount" text="0" textFill="#856404">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Late" textFill="#495057">
                                     <font>
                                         <Font name="System Bold" size="12.0" />
                                     </font>
