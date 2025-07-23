@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="539.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.StudentManagementController">
+   <children>
+      <Label alignment="CENTER" layoutX="-2.0" prefHeight="59.0" prefWidth="750.0" style="-fx-background-color: #2c3e50;" text="Student Management" textFill="#faf5f5">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="108.0" text="Student ID" />
+      <Label layoutX="89.0" layoutY="167.0" text="Student Name" />
+      <Label layoutX="422.0" layoutY="108.0" text="Contact Details" />
+      <Label layoutX="422.0" layoutY="163.0" text="Course ID" />
+      <TextField fx:id="stuid" layoutX="190.0" layoutY="104.0" />
+      <TextField fx:id="stuname" layoutX="190.0" layoutY="159.0" />
+      <TextField fx:id="studetails" layoutX="537.0" layoutY="104.0" />
+      <TextField fx:id="stucrsid" layoutX="537.0" layoutY="159.0" />
+      <Button fx:id="stuadd" layoutX="89.0" layoutY="231.0" mnemonicParsing="false" onAction="#stuaddOnAction" prefHeight="26.0" prefWidth="52.0" text="Add" />
+      <Button fx:id="stuupdate" layoutX="190.0" layoutY="231.0" mnemonicParsing="false" onAction="#stuUpdateOnAction" text="Update" />
+      <Button fx:id="studel" layoutX="289.0" layoutY="231.0" mnemonicParsing="false" onAction="#stuDeleteOnAction" text="Delete" />
+      <TextField fx:id="stusearchbar" layoutX="448.0" layoutY="230.0" prefHeight="26.0" prefWidth="164.0" text="search by id" />
+      <Button fx:id="stusearch" layoutX="635.0" layoutY="230.0" mnemonicParsing="false" onAction="#stuSearchOnAction" text="Search" />
+      <TableView fx:id="studenttable" layoutX="78.0" layoutY="289.0" prefHeight="218.0" prefWidth="613.0">
+        <columns>
+          <TableColumn fx:id="stucolid" prefWidth="115.20001220703125" text="Student ID" />
+          <TableColumn fx:id="stucolname" prefWidth="169.6000213623047" text="Student Name" />
+            <TableColumn fx:id="stucoldetails" prefWidth="172.7999267578125" text="Contact Details" />
+            <TableColumn fx:id="stucolcrsid" prefWidth="156.800048828125" text="Course ID" />
+        </columns>
+      </TableView>
+      <Button layoutX="52.0" layoutY="17.0" mnemonicParsing="false" onAction="#backstudentfromdashboard" text="Back" />
+   </children>
+</AnchorPane>

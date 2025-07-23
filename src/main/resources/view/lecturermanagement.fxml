@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="552.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.LecturerManagementController">
+   <children>
+      <Label alignment="CENTER" prefHeight="58.0" prefWidth="762.0" style="-fx-background-color: #2c3e50;" text="Lecture Management" textFill="#f2eaea">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="124.0" text="Lecturer Id" />
+      <Label layoutX="93.0" layoutY="183.0" text="Lecturer Name" />
+      <Label layoutX="425.0" layoutY="125.0" text="Contact Details" />
+      <Label layoutX="426.0" layoutY="183.0" text="Subject" />
+      <TextField fx:id="lecid" layoutX="190.0" layoutY="121.0" />
+      <TextField fx:id="lecname" layoutX="190.0" layoutY="179.0" />
+      <TextField fx:id="leccontact" layoutX="545.0" layoutY="120.0" />
+      <TextField fx:id="lecsubject" layoutX="546.0" layoutY="179.0" />
+      <TextField fx:id="lecsearchbar" layoutX="432.0" layoutY="251.0" text="Search by id" />
+      <Button layoutX="643.0" layoutY="251.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="303.0" layoutY="251.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="202.0" layoutY="251.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="95.0" layoutY="251.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="Add" />
+      <TableView fx:id="tablevi" layoutX="90.0" layoutY="306.0" prefHeight="200.0" prefWidth="614.0">
+        <columns>
+          <TableColumn fx:id="collecid" prefWidth="137.60004425048828" text="Lecturer ID" />
+          <TableColumn fx:id="collecname" prefWidth="155.199951171875" text="Lecturer Name" />
+            <TableColumn fx:id="collecdetails" prefWidth="153.60006713867188" text="Contact Details" />
+            <TableColumn fx:id="collecsubject" prefWidth="167.2000732421875" text="Subject" />
+        </columns>
+      </TableView>
+      <Button layoutX="69.0" layoutY="16.0" mnemonicParsing="false" onAction="#backlecturerfromdashboard" text="Back" />
+   </children>
+</AnchorPane>

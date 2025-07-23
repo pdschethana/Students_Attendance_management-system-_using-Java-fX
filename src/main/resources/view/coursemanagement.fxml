@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="524.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.CourseManagementController">
+   <children>
+      <Label alignment="CENTER" prefHeight="65.0" prefWidth="710.0" style="-fx-background-color: #2c3e50;" text="Course Management" textFill="#f4efef">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="89.0" layoutY="109.0" text="Course ID" />
+      <Label layoutX="91.0" layoutY="164.0" text="Course Name" />
+      <TextField fx:id="courseid" layoutX="239.0" layoutY="105.0" />
+      <TextField fx:id="coursename" layoutX="239.0" layoutY="160.0" />
+      <TextField fx:id="coursesearchbar" layoutX="418.0" layoutY="224.0" text="Search course by id" />
+      <Button layoutX="89.0" layoutY="224.0" mnemonicParsing="false" onAction="#AddcrsOnAction" prefHeight="26.0" prefWidth="50.0" text="Add" />
+      <Button layoutX="183.0" layoutY="224.0" mnemonicParsing="false" onAction="#updatecrsOnAction" text="Update" />
+      <Button layoutX="275.0" layoutY="224.0" mnemonicParsing="false" onAction="#delecrsOnAction" text="Delete" />
+      <Button layoutX="610.0" layoutY="224.0" mnemonicParsing="false" onAction="#searchcrsOnAction" text="Search" />
+      <TableView fx:id="crstable" layoutX="82.0" layoutY="280.0" prefHeight="200.0" prefWidth="580.0">
+        <columns>
+          <TableColumn fx:id="colcourseid" prefWidth="280.7999725341797" text="Course ID" />
+          <TableColumn fx:id="colcoursename" prefWidth="299.20001220703125" text="Course Name" />
+        </columns>
+      </TableView>
+      <Button layoutX="37.0" layoutY="27.0" mnemonicParsing="false" onAction="#backcoursrfromdashboard" text="Back" />
+   </children>
+</AnchorPane>

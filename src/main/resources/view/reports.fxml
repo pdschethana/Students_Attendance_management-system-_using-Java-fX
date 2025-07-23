@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.ReportsController">
+    <children>
+        <!-- Back Button in Upper Left Corner -->
+        <Button fx:id="btnBack" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#reportbackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="← Back">
+            <graphic>
+                <ImageView fx:id="backIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+            </graphic>
+        </Button>
+
+        <VBox layoutX="20.0" layoutY="80.0" prefHeight="600.0" prefWidth="760.0" spacing="20.0">
+            <children>
+                <!-- Title Section -->
+                <HBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                    <children>
+                        <ImageView fx:id="titleIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" text="Reports Dashboard" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="28.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+
+                <!-- Filter Section -->
+                <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <children>
+                                <ImageView fx:id="filterIcon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label text="Report Filters" textFill="#34495e">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+
+                        <!-- First Row of Filters -->
+                        <HBox spacing="20.0">
+                            <children>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <children>
+                                                <ImageView fx:id="studentIcon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label text="Search by Student:" />
+                                            </children>
+                                        </HBox>
+                                        <TextField fx:id="reportstudentid" prefWidth="180.0" promptText="Enter Student ID or Name" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <children>
+                                                <ImageView fx:id="courseIcon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label text="Filter by Course:" />
+                                            </children>
+                                        </HBox>
+                                        <ComboBox fx:id="reportcourseid" prefWidth="180.0" promptText="Select Course" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Second Row of Filters -->
+                        <HBox spacing="20.0">
+                            <children>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <children>
+                                                <ImageView fx:id="calendarFromIcon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label text="Date Range - From:" />
+                                            </children>
+                                        </HBox>
+                                        <DatePicker fx:id="reportfromdate" prefWidth="180.0" promptText="Select Start Date" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <children>
+                                                <ImageView fx:id="calendarToIcon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label text="Date Range - To:" />
+                                            </children>
+                                        </HBox>
+                                        <DatePicker fx:id="reporttodate" prefWidth="180.0" promptText="Select End Date" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Action Buttons -->
+                        <HBox alignment="CENTER" spacing="20.0">
+                            <children>
+                                <Button fx:id="btnGenerate" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                    <graphic>
+                                        <ImageView fx:id="generateIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                    <text>Generate</text>
+                                </Button>
+                                <Button fx:id="btnExportPDF" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                    <graphic>
+                                        <ImageView fx:id="pdfIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                    <text>Export PDF</text>
+                                </Button>
+                                <Button fx:id="btnExportExcel" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                    <graphic>
+                                        <ImageView fx:id="excelIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                    <text>Export Excel</text>
+                                </Button>
+                                <Button fx:id="btnClear" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                    <graphic>
+                                        <ImageView fx:id="clearIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                    <text>Clear</text>
+                                </Button>
+                                <Button fx:id="btnPrint" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);">
+                                    <graphic>
+                                        <ImageView fx:id="printIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                    <text>Print</text>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- Report Summary Section -->
+                <HBox spacing="25.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                    <children>
+                        <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: #e8f5e8; -fx-background-radius: 10; -fx-padding: 15;">
+                            <children>
+                                <ImageView fx:id="totalReportsIcon" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label fx:id="lblTotalReports" text="0" textFill="#28a745">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Total Records" textFill="#495057">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: #e8f4fd; -fx-background-radius: 10; -fx-padding: 15;">
+                            <children>
+                                <ImageView fx:id="presentIcon" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label fx:id="lblPresentCount" text="0" textFill="#17a2b8">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Present" textFill="#495057">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: #fdf2f2; -fx-background-radius: 10; -fx-padding: 15;">
+                            <children>
+                                <ImageView fx:id="absentIcon" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label fx:id="lblAbsentCount" text="0" textFill="#dc3545">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Absent" textFill="#495057">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <!-- Table Section -->
+                <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" VBox.vgrow="ALWAYS">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <children>
+                                <ImageView fx:id="tableIcon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label text="Report Data" textFill="#34495e">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <TableView fx:id="tblReports" prefHeight="300.0" style="-fx-background-color: #fafafa; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e9ecef;">
+                            <columns>
+                                <TableColumn fx:id="colreportstudent" prefWidth="200.0" style="-fx-alignment: CENTER-LEFT;" text="Student Name" />
+                                <TableColumn fx:id="colreportsubject" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Subject" />
+                                <TableColumn fx:id="colreportdate" prefWidth="130.0" style="-fx-alignment: CENTER;" text="Date" />
+                                <TableColumn fx:id="colreportstatus" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Status" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>
