@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.ijse.javaprojectfx.controller.LecturerDashboardController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="600.0" prefWidth="800.0"
+            style="-fx-background-color: #F4F6F7;">
 
+    <!-- Header -->
+    <Label layoutX="20.0" layoutY="20.0" text="📚 EduTrack - Lecturer Dashboard"
+           style="-fx-font-size: 22px; -fx-text-fill: #2C3E50;" />
+
+    <!-- Welcome Label -->
+    <Label fx:id="lblWelcome"
+           layoutX="20.0" layoutY="60.0"
+           text="Welcome, Dr. [Lecturer Name]"
+           style="-fx-font-size: 16px;" />
+
+    <!-- Buttons -->
+    <Button fx:id="btnViewSchedule" text="📅 View My Class Schedule"
+            layoutX="300.0" layoutY="130.0" prefWidth="250.0" />
+
+    <Button fx:id="btnMarkAttendance" text="📝 Mark Attendance"
+            layoutX="300.0" layoutY="190.0" prefWidth="250.0" />
+
+    <Button fx:id="btnViewReports" text="📊 View Attendance Reports"
+            layoutX="300.0" layoutY="250.0" prefWidth="250.0" />
+
+    <Button fx:id="btnManageProfile" text="👤 Manage My Profile"
+            layoutX="300.0" layoutY="310.0" prefWidth="250.0" />
+
+    <!-- Logout Button -->
+    <Button fx:id="btnLogout" text="🚪 Logout"
+            layoutX="650.0" layoutY="550.0"
+            style="-fx-background-color: #E74C3C; -fx-text-fill: white;"
+            prefWidth="100.0" />
 </AnchorPane>

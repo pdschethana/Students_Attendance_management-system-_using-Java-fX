@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.AttendanceManagementController">
+    <children>
+        <!-- Title -->
+        <Label alignment="CENTER" layoutX="300.0" layoutY="20.0" text="Attendance Management">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+
+        <!-- Form Background -->
+        <AnchorPane layoutX="25.0" layoutY="72.0" prefHeight="180.0" prefWidth="700.0" style="-fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+            <children>
+                <!-- Form Title -->
+                <Label layoutX="20.0" layoutY="15.0" text="Attendance Information">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+
+                <!-- Attendance ID -->
+                <Label layoutX="30.0" layoutY="50.0" text="Attendance ID:" />
+                <TextField fx:id="attid" layoutX="30.0" layoutY="70.0" prefWidth="150.0" promptText="Enter Attendance ID" />
+
+                <!-- Student ID -->
+                <Label layoutX="220.0" layoutY="50.0" text="Student ID:" />
+                <ComboBox fx:id="attstudentid" layoutX="220.0" layoutY="70.0" prefWidth="150.0" promptText="Select Student" />
+
+                <!-- Schedule ID -->
+                <Label layoutX="410.0" layoutY="50.0" text="Schedule ID:" />
+                <ComboBox fx:id="attscheduleid" layoutX="410.0" layoutY="70.0" prefWidth="150.0" promptText="Select Schedule" />
+
+                <!-- Date -->
+                <Label layoutX="30.0" layoutY="110.0" text="Date:" />
+                <DatePicker fx:id="attdate" layoutX="30.0" layoutY="130.0" prefWidth="150.0" promptText="Select Date" />
+
+                <!-- Status -->
+                <Label layoutX="220.0" layoutY="110.0" text="Status:" />
+                <ComboBox fx:id="attstatus" layoutX="220.0" layoutY="130.0" prefWidth="150.0" promptText="Select Status" />
+            </children>
+        </AnchorPane>
+
+        <!-- Action Buttons -->
+        <Button fx:id="btnAdd" layoutX="193.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5;" text="Add" />
+        <Button fx:id="btnUpdate" layoutX="300.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
+        <Button fx:id="btnDelete" layoutX="400.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
+        <Button fx:id="btnClear" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5;" text="Clear" />
+        <Button fx:id="btnSearch" layoutX="600.0" layoutY="270.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-background-radius: 5;" text="Search" />
+
+        <!-- Table Title -->
+        <Label layoutX="50.0" layoutY="320.0" text="Attendance Records">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <!-- TableView -->
+        <TableView fx:id="tblAttendance" layoutX="25.0" layoutY="346.0" prefHeight="200.0" prefWidth="700.0" style="-fx-background-color: white;">
+            <columns>
+                <TableColumn fx:id="colattid" prefWidth="140.0" text="Attendance ID" />
+                <TableColumn fx:id="colattstudent" prefWidth="140.0" text="Student ID" />
+                <TableColumn fx:id="colattschedule" prefWidth="140.0" text="Schedule ID" />
+                <TableColumn fx:id="colattdate" prefWidth="140.0" text="Date" />
+                <TableColumn fx:id="colattstatus" prefWidth="140.0" text="Status" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
