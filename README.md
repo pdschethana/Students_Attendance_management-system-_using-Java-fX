@@ -61,13 +61,13 @@ This is a JavaFX-based desktop application** for managing student attendance in 
  ADMIN001           admin123 
 
 Lecturer Logins
- ID                    Password 
+ ID                               Password 
 
- LEC001                lec123   
- LEC002                lec456   
- LEC003                lec789   
- LEC004                lec101   
- LEC005                lec202   
+ LEC001                         lec123   
+ LEC002                         lec456   
+ LEC003                         lec789   
+ LEC004                         lec101   
+ LEC005                         lec202   
 
 
 
