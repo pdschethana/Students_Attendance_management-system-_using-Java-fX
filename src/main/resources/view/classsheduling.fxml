@@ -1,48 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.ijse.javaprojectfx.controller.ClassScheduleController"
-            prefWidth="800" prefHeight="600">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.ClassScheduleController">
+
     <children>
-        <Label layoutX="20" layoutY="20" text="Schedule ID:" />
-        <TextField fx:id="txtScheduleId" layoutX="150" layoutY="20" />
 
-        <Label layoutX="20" layoutY="60" text="Course ID:" />
-        <TextField fx:id="txtCourseId" layoutX="150" layoutY="60" />
+        <!-- Top Title Bar -->
+        <Label alignment="CENTER" prefHeight="65.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" text="Class Schedule Management" textFill="#f4efef">
+            <font><Font name="System Bold" size="26.0" /></font>
+        </Label>
 
-        <Label layoutX="20" layoutY="100" text="Subject:" />
-        <TextField fx:id="txtSubject" layoutX="150" layoutY="100" />
+        <!-- Labels -->
+        <Label layoutX="50.0" layoutY="90.0" text="Schedule ID" />
+        <Label layoutX="50.0" layoutY="130.0" text="Course ID" />
+        <Label layoutX="50.0" layoutY="170.0" text="Subject" />
+        <Label layoutX="50.0" layoutY="210.0" text="Date" />
+        <Label layoutX="400.0" layoutY="90.0" text="Lecturer ID" />
+        <Label layoutX="400.0" layoutY="130.0" text="Start Time" />
+        <Label layoutX="400.0" layoutY="170.0" text="End Time" />
 
-        <Label layoutX="20" layoutY="140" text="Date:" />
-        <DatePicker fx:id="datePicker" layoutX="150" layoutY="140" />
+        <!-- Input Fields -->
+        <TextField fx:id="txtScheduleId" layoutX="150.0" layoutY="85.0" prefWidth="200.0" />
+        <TextField fx:id="txtCourseId" layoutX="150.0" layoutY="125.0" prefWidth="200.0" />
+        <TextField fx:id="txtSubject" layoutX="150.0" layoutY="165.0" prefWidth="200.0" />
+        <DatePicker fx:id="datePicker" layoutX="150.0" layoutY="205.0" prefWidth="200.0" />
 
-        <Label layoutX="20" layoutY="180" text="Lecturer ID:" />
-        <TextField fx:id="txtLecturerId" layoutX="150" layoutY="180" />
+        <TextField fx:id="txtLecturerId" layoutX="510.0" layoutY="85.0" prefWidth="200.0" />
+        <TextField fx:id="txtStartTime" layoutX="510.0" layoutY="125.0" prefWidth="200.0" />
+        <TextField fx:id="txtEndTime" layoutX="510.0" layoutY="165.0" prefWidth="200.0" />
 
-        <Label layoutX="20" layoutY="220" text="Start Time:" />
-        <TextField fx:id="txtStartTime" layoutX="150" layoutY="220" />
+        <!-- Buttons -->
+        <Button layoutX="150.0" layoutY="250.0" onAction="#btnAddOnAction" text="Add" />
+        <Button layoutX="220.0" layoutY="250.0" onAction="#btnUpdateOnAction" text="Update" />
+        <Button layoutX="310.0" layoutY="250.0" onAction="#btnDeleteOnAction" text="Delete" />
 
-        <Label layoutX="20" layoutY="260" text="End Time:" />
-        <TextField fx:id="txtEndTime" layoutX="150" layoutY="260" />
-
-        <HBox spacing="10" layoutX="150" layoutY="300">
-            <Button text="Add" onAction="#btnAddOnAction" />
-            <Button text="Update" onAction="#btnUpdateOnAction" />
-            <Button text="Delete" onAction="#btnDeleteOnAction" />
-        </HBox>
-
-        <TableView fx:id="tblSchedule" layoutX="20" layoutY="350" prefWidth="760" prefHeight="220">
+        <!-- Table -->
+        <TableView fx:id="tblSchedule" layoutX="50.0" layoutY="300.0" prefHeight="260.0" prefWidth="700.0">
             <columns>
-                <TableColumn fx:id="colId" text="Schedule ID" prefWidth="100"/>
-                <TableColumn fx:id="colCourse" text="Course ID" prefWidth="100"/>
-                <TableColumn fx:id="colSubject" text="Subject" prefWidth="120"/>
-                <TableColumn fx:id="colDate" text="Date" prefWidth="100"/>
-                <TableColumn fx:id="colLecturer" text="Lecturer ID" prefWidth="100"/>
-                <TableColumn fx:id="colStartTime" text="Start Time" prefWidth="100"/>
-                <TableColumn fx:id="colEndTime" text="End Time" prefWidth="100"/>
+                <TableColumn fx:id="colId" prefWidth="100.0" text="Schedule ID" />
+                <TableColumn fx:id="colCourse" prefWidth="100.0" text="Course ID" />
+                <TableColumn fx:id="colSubject" prefWidth="120.0" text="Subject" />
+                <TableColumn fx:id="colDate" prefWidth="100.0" text="Date" />
+                <TableColumn fx:id="colLecturer" prefWidth="100.0" text="Lecturer ID" />
+                <TableColumn fx:id="colStartTime" prefWidth="90.0" text="Start Time" />
+                <TableColumn fx:id="colEndTime" prefWidth="90.0" text="End Time" />
             </columns>
         </TableView>
+
+        <!-- Back Button -->
+        <Button layoutX="42.0" layoutY="20.0" onAction="#backToDashboardOnAction" text="Back" />
     </children>
 </AnchorPane>

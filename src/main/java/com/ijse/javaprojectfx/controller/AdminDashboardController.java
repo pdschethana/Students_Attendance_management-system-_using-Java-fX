@@ -105,4 +105,8 @@ public class AdminDashboardController {
         }
         // Implementation needed
     }
+
+    public void dashboardOnAction(ActionEvent actionEvent) {
+
+    }
 }

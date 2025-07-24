@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -35,11 +34,11 @@
 
                 <!-- Student ID -->
                 <Label layoutX="220.0" layoutY="50.0" text="Student ID:" />
-                <ComboBox fx:id="attstudentid" layoutX="220.0" layoutY="70.0" prefWidth="150.0" promptText="Select Student" />
+                <TextField fx:id="attstudentid" layoutX="220.0" layoutY="70.0" prefWidth="150.0" promptText="Enter Student ID" />
 
                 <!-- Schedule ID -->
                 <Label layoutX="410.0" layoutY="50.0" text="Schedule ID:" />
-                <ComboBox fx:id="attscheduleid" layoutX="410.0" layoutY="70.0" prefWidth="150.0" promptText="Select Schedule" />
+                <TextField fx:id="attscheduleid" layoutX="410.0" layoutY="70.0" prefWidth="150.0" promptText="Enter Schedule ID" />
 
                 <!-- Date -->
                 <Label layoutX="30.0" layoutY="110.0" text="Date:" />
@@ -47,7 +46,7 @@
 
                 <!-- Status -->
                 <Label layoutX="220.0" layoutY="110.0" text="Status:" />
-                <ComboBox fx:id="attstatus" layoutX="220.0" layoutY="130.0" prefWidth="150.0" promptText="Select Status" />
+                <TextField fx:id="attstatus" layoutX="220.0" layoutY="130.0" prefWidth="150.0" promptText="Present/Absent/Late" />
             </children>
         </AnchorPane>
 
@@ -75,6 +74,6 @@
                 <TableColumn fx:id="colattstatus" prefWidth="140.0" text="Status" />
             </columns>
         </TableView>
-      <Button layoutX="63.0" layoutY="25.0" mnemonicParsing="false" onAction="#backattendancemanagementtoadmindshbrd" prefHeight="26.0" prefWidth="48.0" text="Back" />
+        <Button layoutX="63.0" layoutY="25.0" mnemonicParsing="false" onAction="#backattendancemanagementtoadmindshbrd" prefHeight="26.0" prefWidth="59.0" text="Logout" />
     </children>
 </AnchorPane>

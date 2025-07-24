@@ -2,26 +2,54 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.LoginController">
 
-<AnchorPane prefHeight="486.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.javaprojectfx.controller.LoginController">
-   <children>
-      <Label alignment="CENTER" prefHeight="64.0" prefWidth="710.0" style="-fx-background-color: #2c3e50;" text="Welcome to Edu-Track" textFill="#faf6f6">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="132.0" layoutY="134.0" prefHeight="18.0" prefWidth="109.0" text="Id" />
-      <Label layoutX="132.0" layoutY="199.0" text="password" />
-      <RadioButton fx:id="adminid" layoutX="317.0" layoutY="270.0" mnemonicParsing="false" text="Admin" />
-      <RadioButton fx:id="lecturerid" layoutX="472.0" layoutY="270.0" mnemonicParsing="false" text="Lecturer" />
-      <Label layoutX="132.0" layoutY="270.0" text="Role" />
-      <TextField fx:id="logid" layoutX="317.0" layoutY="131.0" />
-      <TextField fx:id="logpsw" layoutX="317.0" layoutY="195.0" />
-      <Button layoutX="329.0" layoutY="344.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="26.0" prefWidth="78.0" text="Login" />
-   </children>
+   <!-- Header Label -->
+   <Label alignment="CENTER" layoutX="0" layoutY="0" prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #4a6baf;" text="Welcome to Edu-Track" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="28.0" />
+      </font>
+   </Label>
+
+   <!-- Title label -->
+   <Label alignment="CENTER" layoutX="258.0" layoutY="130.0" prefWidth="300" text="Login to Your Account" textFill="#2c3e50">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+
+   <!-- User ID Label -->
+   <Label layoutX="270" layoutY="190" prefWidth="100" text="User ID:" />
+
+   <!-- User ID TextField -->
+   <TextField fx:id="logid" layoutX="370" layoutY="190" prefWidth="180" />
+
+   <!-- Password Label -->
+   <Label layoutX="270" layoutY="230" prefWidth="100" text="Password:" />
+
+   <!-- Password Field -->
+   <PasswordField fx:id="logpsw" layoutX="370" layoutY="230" prefWidth="180" />
+
+   <!-- Role Label -->
+   <Label layoutX="270.0" layoutY="288.0" prefWidth="100" text="Role:" />
+
+   <!-- Admin RadioButton -->
+   <RadioButton fx:id="adminid" layoutX="372.0" layoutY="288.0" text="Admin" />
+
+   <!-- Lecturer RadioButton -->
+   <RadioButton fx:id="lecturerid" layoutX="485.0" layoutY="288.0" text="Lecturer" />
+
+   <!-- Login Button -->
+   <Button layoutX="348.0" layoutY="359.0" onAction="#loginOnAction" prefHeight="40" prefWidth="120" style="-fx-background-color: #4a6baf; -fx-text-fill: white; -fx-background-radius: 4;" text="Login">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+
 </AnchorPane>

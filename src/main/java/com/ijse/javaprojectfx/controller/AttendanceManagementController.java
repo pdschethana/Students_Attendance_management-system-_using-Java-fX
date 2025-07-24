@@ -17,22 +17,42 @@ import java.time.LocalDate;
 
 public class AttendanceManagementController {
 
-    @FXML private TextField attid;
-    @FXML private ComboBox<String> attstudentid, attscheduleid, attstatus;
-    @FXML private DatePicker attdate;
-    @FXML private TableView<AttendanceDTO> tblAttendance;
-    @FXML private TableColumn<AttendanceDTO, String> colattid, colattstudent, colattschedule, colattdate, colattstatus;
+    @FXML
+    private TextField attid;
+    @FXML
+    private TextField attstudentid;
+    @FXML
+    private TextField attscheduleid;
+    @FXML
+    private TextField attstatus;
+    @FXML
+    private DatePicker attdate;
+    @FXML
+    private TableView<AttendanceDTO> tblAttendance;
+    @FXML
+    private TableColumn<AttendanceDTO, String> colattid, colattstudent, colattschedule, colattdate, colattstatus;
 
     private final AttendanceService svc = new AttendanceService();
 
-    @FXML public void initialize() {
+    @FXML
+    public void initialize() {
         colattid.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getAttendanceId()));
         colattstudent.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getStudentId()));
         colattschedule.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getScheduleId()));
         colattdate.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getDate().toString()));
         colattstatus.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getStatus()));
 
-        attstatus.getItems().addAll("Present", "Absent", "Late");
+        // Set up table row selection to populate fields
+        tblAttendance.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                attid.setText(newSelection.getAttendanceId());
+                attstudentid.setText(newSelection.getStudentId());
+                attscheduleid.setText(newSelection.getScheduleId());
+                attdate.setValue(newSelection.getDate());
+                attstatus.setText(newSelection.getStatus());
+            }
+        });
+
         loadAll();
     }
 
@@ -40,50 +60,155 @@ public class AttendanceManagementController {
         tblAttendance.setItems(FXCollections.observableArrayList(svc.getAll()));
     }
 
+    @FXML
     public void onAdd() {
-        AttendanceDTO dto = new AttendanceDTO(attid.getText(), attstudentid.getValue(), attscheduleid.getValue(), attdate.getValue(), attstatus.getValue());
-        if (svc.add(dto)) { loadAll(); clear(); }
+        try {
+            if (validateFields()) {
+                AttendanceDTO dto = new AttendanceDTO(
+                        attid.getText(),
+                        attstudentid.getText(),
+                        attscheduleid.getText(),
+                        attdate.getValue(),
+                        attstatus.getText()
+                );
+
+                if (svc.add(dto)) {
+                    new Alert(Alert.AlertType.INFORMATION, "Attendance added successfully!").show();
+                    loadAll();
+                    clear();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to add attendance!").show();
+                }
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).show();
+            e.printStackTrace();
+        }
     }
 
+    @FXML
     public void onUpdate() {
-        AttendanceDTO dto = new AttendanceDTO(attid.getText(), attstudentid.getValue(), attscheduleid.getValue(), attdate.getValue(), attstatus.getValue());
-        if (svc.update(dto)) { loadAll(); clear(); }
+        try {
+            if (validateFields()) {
+                AttendanceDTO dto = new AttendanceDTO(
+                        attid.getText(),
+                        attstudentid.getText(),
+                        attscheduleid.getText(),
+                        attdate.getValue(),
+                        attstatus.getText()
+                );
+
+                if (svc.update(dto)) {
+                    new Alert(Alert.AlertType.INFORMATION, "Attendance updated successfully!").show();
+                    loadAll();
+                    clear();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to update attendance!").show();
+                }
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).show();
+            e.printStackTrace();
+        }
     }
 
+    @FXML
     public void onDelete() {
-        if (svc.delete(attid.getText())) { loadAll(); clear(); }
+        try {
+            String id = attid.getText();
+            if (id.isEmpty()) {
+                new Alert(Alert.AlertType.WARNING, "Please select an attendance record to delete").show();
+                return;
+            }
+
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this attendance record?");
+            confirm.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    if (svc.delete(id)) {
+                        new Alert(Alert.AlertType.INFORMATION, "Attendance deleted successfully!").show();
+                        loadAll();
+                        clear();
+                    } else {
+                        new Alert(Alert.AlertType.ERROR, "Failed to delete attendance!").show();
+                    }
+                }
+            });
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).show();
+            e.printStackTrace();
+        }
     }
 
-    public void onClear() { clear(); }
+    @FXML
+    public void onClear() {
+        clear();
+    }
 
+    @FXML
     public void onSearch() {
-        AttendanceDTO dto = svc.search(attid.getText());
-        if (dto != null) {
-            attstudentid.setValue(dto.getStudentId());
-            attscheduleid.setValue(dto.getScheduleId());
-            attdate.setValue(dto.getDate());
-            attstatus.setValue(dto.getStatus());
-        } else new Alert(Alert.AlertType.INFORMATION, "Not found").show();
+        try {
+            String id = attid.getText();
+            if (id.isEmpty()) {
+                new Alert(Alert.AlertType.WARNING, "Please enter an attendance ID to search").show();
+                return;
+            }
+
+            AttendanceDTO dto = svc.search(id);
+            if (dto != null) {
+                attstudentid.setText(dto.getStudentId());
+                attscheduleid.setText(dto.getScheduleId());
+                attdate.setValue(dto.getDate());
+                attstatus.setText(dto.getStatus());
+            } else {
+                new Alert(Alert.AlertType.INFORMATION, "No attendance record found with ID: " + id).show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).show();
+            e.printStackTrace();
+        }
+    }
+
+    private boolean validateFields() {
+        if (attid.getText().isEmpty() ||
+                attstudentid.getText().isEmpty() ||
+                attscheduleid.getText().isEmpty() ||
+                attdate.getValue() == null ||
+                attstatus.getText().isEmpty()) {
+
+            new Alert(Alert.AlertType.WARNING, "Please fill all fields!").show();
+            return false;
+        }
+
+        if (!attstatus.getText().matches("Present|Absent|Late")) {
+            new Alert(Alert.AlertType.WARNING, "Status must be either Present, Absent, or Late").show();
+            return false;
+        }
+
+        return true;
     }
 
     private void clear() {
         attid.clear();
-        attstudentid.getSelectionModel().clearSelection();
-        attscheduleid.getSelectionModel().clearSelection();
+        attstudentid.clear();
+        attscheduleid.clear();
         attdate.setValue(null);
-        attstatus.getSelectionModel().clearSelection();
+        attstatus.clear();
+        tblAttendance.getSelectionModel().clearSelection();
     }
 
+    @FXML
     public void backattendancemanagementtoadmindshbrd(ActionEvent actionEvent) {
         try {
-            // Fixed: Corrected the resource path to match the pattern used in other methods
-            Parent loginView = FXMLLoader.load(getClass().getResource("/view/admindashboard.fxml"));
+            Parent loginView = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(loginView));
-            stage.setTitle("admin dashboard");
+            stage.setTitle("Admin Dashboard");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Error loading admin dashboard: " + e.getMessage()).show();
         }
     }
 }
+
+
