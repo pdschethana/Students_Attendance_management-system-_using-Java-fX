@@ -19,16 +19,10 @@ public class LecturerDashboardController {
     private Label lblWelcome;
 
     @FXML
-    private Button btnViewSchedule;
-
-    @FXML
     private Button btnMarkAttendance;
 
     @FXML
     private Button btnViewReports;
-
-    @FXML
-    private Button btnManageProfile;
 
     @FXML
     private Button btnLogout;
@@ -40,7 +34,6 @@ public class LecturerDashboardController {
 
     public void Gotoattendancemanagementpage(ActionEvent actionEvent) {
         try {
-            // Fixed: Corrected the resource path to match the pattern used in other methods
             Parent loginView = FXMLLoader.load(getClass().getResource("/view/attendancemanagement.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(loginView));
@@ -51,13 +44,8 @@ public class LecturerDashboardController {
         }
     }
 
-    public void gotologinpage(MouseEvent mouseEvent) {
-
-    }
-
     public void gotologin(ActionEvent actionEvent) {
         try {
-            // Fixed: Corrected the resource path to match the pattern used in other methods
             Parent loginView = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(loginView));
@@ -66,6 +54,9 @@ public class LecturerDashboardController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void gotologinpage(MouseEvent mouseEvent) {
 
     }
 }
