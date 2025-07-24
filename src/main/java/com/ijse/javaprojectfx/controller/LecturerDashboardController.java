@@ -59,4 +59,17 @@ public class LecturerDashboardController {
     public void gotologinpage(MouseEvent mouseEvent) {
 
     }
+
+    public void gotoreportpage(ActionEvent actionEvent) {
+        try {
+            Parent loginView = FXMLLoader.load(getClass().getResource("/view/reports.fxml"));
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(loginView));
+            stage.setTitle("Login Page");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

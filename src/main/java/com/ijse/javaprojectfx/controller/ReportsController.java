@@ -183,7 +183,7 @@ public class ReportsController {
     @FXML
     public void reportbackOnAction(ActionEvent actionEvent) {
         try {
-            Parent adminView = FXMLLoader.load(getClass().getResource("/view/admindashboard.fxml"));
+            Parent adminView = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(adminView));
             stage.setTitle("Admin Dashboard");

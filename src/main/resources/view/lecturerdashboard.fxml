@@ -15,7 +15,7 @@
     <!-- Buttons -->
     <Button fx:id="btnMarkAttendance" layoutX="300.0" layoutY="140.0" onAction="#Gotoattendancemanagementpage" prefHeight="32.0" prefWidth="250.0" text="📝 Mark Attendance" />
 
-    <Button fx:id="btnViewReports" layoutX="300.0" layoutY="200.0" prefHeight="32.0" prefWidth="250.0" text="📊 View Attendance Reports" />
+    <Button fx:id="btnViewReports" layoutX="300.0" layoutY="200.0" onAction="#gotoreportpage" prefHeight="32.0" prefWidth="250.0" text="📊 View Attendance Reports" />
 
     <!-- Logout Button -->
     <Button fx:id="btnLogout" layoutX="650.0" layoutY="550.0" onAction="#gotologin" prefWidth="100.0" style="-fx-background-color: #E74C3C; -fx-text-fill: white;" text="🚪 Logout" />
